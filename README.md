@@ -1,4 +1,4 @@
-# RIKO_AIWAIFUU
+# NEZUKO_AIWAIFUU
 Rikho Project Clone
 
 Overview
