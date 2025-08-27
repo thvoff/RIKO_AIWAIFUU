@@ -1,6 +1,6 @@
 # Project Riko
 
-Project Riko is a anime focused LLM project by Just Rayen. She listens, and remembers your conversations. It combines Google Gemini, GPT-SoVITS voice synthesis, and Faster-Whisper ASR into a fully configurable conversational pipeline.
+
 
 **tested with python 3.10 Windows >10 and Linux Ubuntu**
 ## ✨ Features
