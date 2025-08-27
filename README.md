@@ -34,6 +34,9 @@ sovits_ping_config:
   prompt_text : This is a sample voice for you to just get started with because it sounds kind of cute but just make sure this doesn't have long silences.
   
 ````
+OR 
+
+you can use OLLAMA - LLAMA3.1-8b its open-sorce model
 
 You can define personalities by modiying the config file.
 
