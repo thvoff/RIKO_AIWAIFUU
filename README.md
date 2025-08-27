@@ -1,5 +1,5 @@
 # NEZUKO_AIWAIFUU
-Rikho Project Clone
+NEZUKO Project 
 
 Overview
 This project is a voice cloning application built using the SoVITS framework, designed to generate high-quality synthetic voices. It includes a client-server architecture for processing and interaction, with support for character-based voice customization.
