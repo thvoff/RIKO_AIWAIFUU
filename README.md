@@ -1,48 +1,97 @@
-# NEZUKO_AIWAIFUU
-NEZUKO Project 
+# Project Riko
 
-Overview
-This project is a voice cloning application built using the SoVITS framework, designed to generate high-quality synthetic voices. It includes a client-server architecture for processing and interaction, with support for character-based voice customization.
+Project Riko is a anime focused LLM project by Just Rayen. She listens, and remembers your conversations. It combines Google Gemini, GPT-SoVITS voice synthesis, and Faster-Whisper ASR into a fully configurable conversational pipeline.
 
-Features
-Voice synthesis using SoVITS model (v3lora-20250228).
-Client-server setup for distributed processing.
-Customizable character voices via configuration files.
-Audio sample generation and playback.
-Project Structure
+**tested with python 3.10 Windows >10 and Linux Ubuntu**
+## ✨ Features
 
-
-.qodo, .venv, .vscode: Development tool configurations.
-GPT-SoVITS-v3lora-20250228: SoVITS model and dataset.
-waifu_project: Main project folder.
-audio: Contains input/output audio files (e.g., main_sample.wav, output.wav).
-character_files: Character-related data.
-__pycache__: Python bytecode cache.
-client, server: Client and server code.
-process/main_chat.py: Core processing script.
-character_config.yaml: Character settings.
-chat_history.json: Conversation histoY
-extra-req.txt: Additional requirements.
-install_reqs.sh: Dependency installation script.
-requirements.txt, requirements_windows.txt: Python dependencies.
-backup.txt: Backup data.
+- 💬 **LLM-based dialogue** using Google Gemini API (configurable system prompts)
+- 🧠 **Conversation memory** to keep context during interactions
+- 🔊 **Voice generation** via GPT-SoVITS API
+- 🎧 **Speech recognition** using Faster-Whisper
+- 📁 Clean YAML-based config for personality configuration
 
 
+## ⚙️ Configuration
 
-Installation
-Clone the repository: git clone <repository-URL>
-Navigate to the project folder: cd Rikho_PROJECT_CLONE
-Install dependencies: ./install_reqs.sh or pip install -r requirements.txt
-Run the main script: python waifu_project/process/main_chat.py
+All prompts and parameters are stored in `character_config.yaml`.
 
-Usage
-Configure character settings in character_config.yaml.
-Use main_sample.wav as a reference audio.
-Generated output is saved as output.wav.
-Contributing
-Feel free to fork and submit pull requests!
+```yaml
+GEMINI_API_KEY: YOUR_GEMINI_API_KEY
+history_file: chat_history.json
+model: "gemini-2.0-flash"
+presets:
+  default:
+    system_prompt: |
+      You are a helpful assistant named Riko.
+      You speak like a snarky anime girl.
+      Always refer to the user as "senpai".
 
-License
-MIT
+sovits_ping_config:
+  text_lang: en
+  prompt_lang : en
+  ref_audio_path : waifu_project\character_files\main_sample.wav
+  prompt_text : This is a sample voice for you to just get started with because it sounds kind of cute but just make sure this doesn't have long silences.
+  
+````
 
-[Add license if applicable, e.g., MIT]
+You can define personalities by modiying the config file.
+
+
+## 🛠️ Setup
+
+### Install Dependencies
+
+```bash
+pip install uv 
+uv pip install -r extra-req.txt
+uv pip install -r requirements.txt
+```
+
+**If you want to use GPU support for Faster whisper** Make sure you also have:
+
+* CUDA & cuDNN installed correctly (for Faster-Whisper GPU support)
+* `ffmpeg` installed (for audio processing)
+
+
+## 🧪 Usage
+
+### 1. Launch the GPT-SoVITS API 
+
+### 2. Run the main script:
+
+
+```bash
+python main_chat.py
+```
+
+The flow:
+
+1. Riko listens to your voice via microphone (push to talk)
+2. Transcribes it with Faster-Whisper
+3. Passes it to GPT (with history)
+4. Generates a response
+5. Synthesizes Riko's voice using GPT-SoVITS
+6. Plays the output back to you
+
+
+## 📌 TODO / Future Improvements
+
+* [ ] GUI or web interface
+* [ ] Live microphone input support
+* [ ] Emotion or tone control in speech synthesis
+* [ ] VRM model frontend
+
+
+## 🧑‍🎤 Credits
+
+* Voice synthesis powered by [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS)
+* ASR via [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper)
+* Language model via [Google Gemini](https://ai.google.dev/)
+
+
+## 📜 License
+
+MIT — feel free to clone, modify, and build your own waifu voice companion.
+
+
